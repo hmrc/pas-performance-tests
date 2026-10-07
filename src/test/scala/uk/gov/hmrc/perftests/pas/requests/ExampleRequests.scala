@@ -3,7 +3,7 @@
  *
  */
 
-package uk.gov.hmrc.perftests.example
+package uk.gov.hmrc.perftests.pas.requests
 
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
