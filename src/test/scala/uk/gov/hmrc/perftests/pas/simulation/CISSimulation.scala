@@ -14,18 +14,25 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.perftests.simulation
+package uk.gov.hmrc.perftests.pas.simulation
 
 import uk.gov.hmrc.performance.simulation.PerformanceTestRunner
-import uk.gov.hmrc.perftests.requests.CISRequests.{loginToAuthWizard}
-import uk.gov.hmrc.perftests.requests.AuthLoginRequests.{authLogin, navigateToAuth}
-import uk.gov.hmrc.perftests.requests.BaseRequests
+import uk.gov.hmrc.perftests.pas.requests.BaseRequests
+import uk.gov.hmrc.perftests.pas.requests.CISRequests.{loginToAuthWizard, navigateToBeforeYouStart, navigateToWhyYouAreAppealing, selectReasonForAppeal, navigateToExcuseEndDateKnown, selectExcuseEndDateKnown, navigateToReasonableExcuseEndDate, enterReasonableExcuseEndDate}
+import uk.gov.hmrc.perftests.pas.requests.AuthLoginRequests.{authLogin, navigateToAuth}
 
 trait CISSimulation extends PerformanceTestRunner with BaseRequests {
 
   setup("cis-paye-questions", "CIS PAYE Journey").withRequests(
     navigateToAuth,
     authLogin,
-    loginToAuthWizard
+    loginToAuthWizard,
+    navigateToBeforeYouStart,
+    navigateToWhyYouAreAppealing,
+    selectReasonForAppeal,
+    navigateToExcuseEndDateKnown,
+    selectExcuseEndDateKnown,
+    navigateToReasonableExcuseEndDate,
+    enterReasonableExcuseEndDate
   )
 }
