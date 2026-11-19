@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.perftests.requests
+package uk.gov.hmrc.perftests.pas.requests
 
 import io.gatling.core.Predef._
 import io.gatling.core.check.CheckBuilder
@@ -25,13 +25,19 @@ import uk.gov.hmrc.performance.conf.ServicesConfiguration
 
 trait BaseRequests extends ServicesConfiguration {
 
-  val baseUrl: String         = baseUrlFor("cis-paye-penalties-and-appeals-frontend")
-  val redirectUrl: String     = "/cis-paye-penalties-and-appeals"
+  val baseUrl: String                     = baseUrlFor("cis-paye-penalties-and-appeals-frontend")
+  val redirectUrl: String                 = "/cis-paye-penalties-and-appeals"
 
-  val authLoginStub: String   = baseUrlFor("auth-login-stub")
-  val authLoginStubUrl        = s"$authLoginStub/auth-login-stub/gg-sign-in"
-  val CsrfPattern             = """<input type="hidden" name="csrfToken" value="([^"]+)""""
-  val lookupPattern           = """<form method="POST" novalidate action="([^"]+)""""
+  val cisAppealablePenalties: String      = "/appealable-penalties?page=1"
+  val cisBeforeYouStart: String           = "/before-you-start/100001"
+  val cisWhyYouAreAppealing: String       = "/why-you-are-appealing"
+  val excuseEndDateKnown: String          = "/excuse-end-date-known"
+  val reasonableExcuseEndDate: String     = "/reasonable-excuse-end-date"
+
+  val authLoginStub: String               = baseUrlFor("auth-login-stub")
+  val authLoginStubUrl                    = s"$authLoginStub/auth-login-stub/gg-sign-in"
+  val CsrfPattern                         = """<input type="hidden" name="csrfToken" value="([^"]+)""""
+  val lookupPattern                       = """<form method="POST" novalidate action="([^"]+)""""
 
   def saveCsrfToken(): CheckBuilder[RegexCheckType, String] = regex(_ => CsrfPattern).saveAs("csrfToken")
 }

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.perftests.simulation
+package uk.gov.hmrc.perftests.pas.simulation
 
 import uk.gov.hmrc.performance.simulation.PerformanceTestRunner
 

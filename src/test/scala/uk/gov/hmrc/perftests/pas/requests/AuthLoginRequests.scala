@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package uk.gov.hmrc.perftests.requests
+package uk.gov.hmrc.perftests.pas.requests
 
 import io.gatling.core.Predef._
 import io.gatling.http.Predef._
@@ -39,9 +39,11 @@ object AuthLoginRequests extends ServicesConfiguration with BaseRequests {
       .formParam("authorityId", "")
       .formParam("confidenceLevel", "50")
       .formParam("affinityGroup", "Organisation")
-      .formParam("enrolment[0].name", "HMRC-CHAR-ORG")
-      .formParam("enrolment[0].taxIdentifier[0].name", "CHARID")
-      .formParam("enrolment[0].taxIdentifier[0].value", "IT00071")
+      .formParam("enrolment[0].name", "HMRC-CIS-ORG")
+      .formParam("enrolment[0].taxIdentifier[0].name", "TaxOfficeNumber")
+      .formParam("enrolment[0].taxIdentifier[0].value", "100")
+      .formParam("enrolment[0].taxIdentifier[1].name", "TaxOfficeReference")
+      .formParam("enrolment[0].taxIdentifier[1].value", "AB123")
       .formParam("enrolment[0].state", "Activated")
       .check(status.is(303))
       .check(header("Location").is(redirectUrl))
