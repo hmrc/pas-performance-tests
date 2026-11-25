@@ -33,6 +33,9 @@ trait BaseRequests extends ServicesConfiguration {
   val cisWhyYouAreAppealing: String       = "/why-you-are-appealing"
   val excuseEndDateKnown: String          = "/excuse-end-date-known"
   val reasonableExcuseEndDate: String     = "/reasonable-excuse-end-date"
+  val cisContractorEndDate: String        = "/cis-contractor-end-date"
+  val whenDidYouFileTheReturn: String     = "/when-did-you-file-the-return"
+  val additionalDetails: String           = "/additional-details"
 
   val authLoginStub: String               = baseUrlFor("auth-login-stub")
   val authLoginStubUrl                    = s"$authLoginStub/auth-login-stub/gg-sign-in"
