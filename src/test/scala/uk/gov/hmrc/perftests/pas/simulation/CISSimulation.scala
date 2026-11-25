@@ -18,7 +18,7 @@ package uk.gov.hmrc.perftests.pas.simulation
 
 import uk.gov.hmrc.performance.simulation.PerformanceTestRunner
 import uk.gov.hmrc.perftests.pas.requests.BaseRequests
-import uk.gov.hmrc.perftests.pas.requests.CISRequests.{loginToAuthWizard, navigateToBeforeYouStart, navigateToWhyYouAreAppealing, selectReasonForAppeal, navigateToExcuseEndDateKnown, selectExcuseEndDateKnown, navigateToReasonableExcuseEndDate, enterReasonableExcuseEndDate}
+import uk.gov.hmrc.perftests.pas.requests.CISRequests._
 import uk.gov.hmrc.perftests.pas.requests.AuthLoginRequests.{authLogin, navigateToAuth}
 
 trait CISSimulation extends PerformanceTestRunner with BaseRequests {
@@ -33,6 +33,12 @@ trait CISSimulation extends PerformanceTestRunner with BaseRequests {
     navigateToExcuseEndDateKnown,
     selectExcuseEndDateKnown,
     navigateToReasonableExcuseEndDate,
-    enterReasonableExcuseEndDate
+    enterReasonableExcuseEndDate,
+    navigateToCisContractorEndDate,
+    enterCisContractorEndDate,
+    navigateToWhenDidYouFileTheReturn,
+    enterWhenDidYouFileTheReturn,
+    navigateToAdditionalDetails,
+    enterAdditionalDetails
   )
 }

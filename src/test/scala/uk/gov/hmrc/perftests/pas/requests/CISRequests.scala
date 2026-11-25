@@ -80,4 +80,50 @@ object CISRequests extends ServicesConfiguration with BaseRequests {
       .formParam("value.month", "10")
       .formParam("value.year", "2026")
       .check(status.is(303))
+
+  val navigateToCisContractorEndDate: HttpRequestBuilder =
+    http("Navigate to CIS Contractor End Date page")
+      .get(s"$baseUrl$redirectUrl$cisContractorEndDate")
+      .check(status.is(200))
+      .check(saveCsrfToken())
+      .check(regex("Your CIS registration"))
+
+  val enterCisContractorEndDate: HttpRequestBuilder =
+    http("Enter CIS Contractor End Date")
+      .post(s"$baseUrl$redirectUrl$cisContractorEndDate")
+      .formParam("csrfToken", "#{csrfToken}")
+      .formParam("value.day", "10")
+      .formParam("value.month", "02")
+      .formParam("value.year", "2026")
+      .check(status.is(303))
+
+  val navigateToWhenDidYouFileTheReturn: HttpRequestBuilder =
+    http("Navigate to When Did You File The Return page")
+      .get(s"$baseUrl$redirectUrl$whenDidYouFileTheReturn")
+      .check(status.is(200))
+      .check(saveCsrfToken())
+      .check(regex("When did you file the return?"))
+
+  val enterWhenDidYouFileTheReturn: HttpRequestBuilder =
+    http("Enter When Did You File The Return")
+      .post(s"$baseUrl$redirectUrl$whenDidYouFileTheReturn")
+      .formParam("csrfToken", "#{csrfToken}")
+      .formParam("value.day", "28")
+      .formParam("value.month", "10")
+      .formParam("value.year", "2026")
+      .check(status.is(303))
+
+  val navigateToAdditionalDetails: HttpRequestBuilder =
+    http("Navigate to Additional Details page")
+      .get(s"$baseUrl$redirectUrl$additionalDetails")
+      .check(status.is(200))
+      .check(saveCsrfToken())
+      .check(regex("Additional details"))
+
+  val enterAdditionalDetails: HttpRequestBuilder =
+    http("Enter Additional Details")
+      .post(s"$baseUrl$redirectUrl$additionalDetails")
+      .formParam("csrfToken", "#{csrfToken}")
+      .formParam("value", "My reason for appeal")
+      .check(status.is(303))
 }
